@@ -19,23 +19,21 @@ let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
-    async signIn(body) {
-        console.log('Body recebido:', body);
-        const { username, password } = body;
+    async signIn(username, password) {
         return this.authService.signIn(username, password);
     }
 };
 exports.AuthController = AuthController;
 __decorate([
-    (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     (0, common_1.Post)('login'),
-    __param(0, (0, common_1.Body)()),
+    __param(0, (0, common_1.Body)('username')),
+    __param(1, (0, common_1.Body)('password')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "signIn", null);
 exports.AuthController = AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
 ], AuthController);
-//# sourceMappingURL=auth.controller.js.map
+//# sourceMappingURL=coisa.js.map

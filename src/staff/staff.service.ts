@@ -3,7 +3,12 @@ import { Injectable } from '@nestjs/common';
 // import { Find } from '../../src/client/client.controller'
 
 
-export type Staff = any;
+export type Staff = {
+  userId: number;
+  username: string;
+  password: string;
+};
+
 
 @Injectable()
 export class StaffService {
@@ -17,10 +22,10 @@ export class StaffService {
       userId: 2,
       username: 'maria',
       password: 'mariasenha',
-    },
+    }
   ];
 
   async findOne(username: string): Promise<Staff | undefined> {
-    return this.staff.find(user => user.username === username);
+    return this.staff.find((user) => user.username === username);
   }
 }

@@ -13,19 +13,20 @@ exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const staff_service_1 = require("../staff/staff.service");
 const jwt_1 = require("@nestjs/jwt");
-const bcrypt = require("bcrypt");
 let AuthService = class AuthService {
     constructor(staffService, jwtService) {
         this.staffService = staffService;
         this.jwtService = jwtService;
     }
     async signIn(username, pass) {
+        console.log(`Usuário: ${username}, Senha: ${pass}`);
         const staff = await this.staffService.findOne(username);
         if (!staff) {
+            console.log(`pesquisa no staffService ${staff} nome inserido ${username}`);
             throw new common_1.UnauthorizedException('Credenciais inválidas');
         }
-        const passwordMatches = await bcrypt.compare(pass, staff.password);
-        if (!passwordMatches) {
+        console.log(`pesquisa no staffService ${staff.password} senha inserido ${pass} `);
+        if (staff.password !== pass) {
             throw new common_1.UnauthorizedException('Credenciais inválidas');
         }
         const payload = { sub: staff.userId, username: staff.username };

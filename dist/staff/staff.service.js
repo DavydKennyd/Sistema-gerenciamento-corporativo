@@ -20,11 +20,11 @@ let StaffService = class StaffService {
                 userId: 2,
                 username: 'maria',
                 password: 'mariasenha',
-            },
+            }
         ];
     }
     async findOne(username) {
-        return this.staff.find(user => user.username === username);
+        return this.staff.find((user) => user.username === username);
     }
 };
 exports.StaffService = StaffService;
