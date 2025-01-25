@@ -21,19 +21,7 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)({ length: 150 }),
     __metadata("design:type", String)
-], Client.prototype, "name", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ length: 20 }),
-    __metadata("design:type", String)
-], Client.prototype, "cpf", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ length: 50 }),
-    __metadata("design:type", String)
-], Client.prototype, "email", void 0);
-__decorate([
-    (0, typeorm_1.Column)({ length: 100 }),
-    __metadata("design:type", String)
-], Client.prototype, "login", void 0);
+], Client.prototype, "username", void 0);
 __decorate([
     (0, typeorm_1.Column)({ length: 255 }),
     __metadata("design:type", String)

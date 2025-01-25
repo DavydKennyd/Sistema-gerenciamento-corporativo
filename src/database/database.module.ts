@@ -1,8 +1,12 @@
+
 import { Module } from '@nestjs/common';
-import { databaseProviders } from './database.providers';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthService } from '../auth/auth.service';
+import { Client } from '../client/entities/client.entity';
 
 @Module({
-  providers: [...databaseProviders],
-  exports: [...databaseProviders],
+  imports: [TypeOrmModule.forFeature([Client])], // Registra a entidade Cliente
+  providers: [AuthService],
+  exports: [AuthService],
 })
 export class DatabaseModule {}

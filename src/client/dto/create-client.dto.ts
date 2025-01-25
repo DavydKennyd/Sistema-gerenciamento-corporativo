@@ -5,14 +5,8 @@ export class CreateClientDto {
     @IsString()
     name:string;
 
-    @IsString()
-    cpf:string;
-
-    @IsEmail()
-    email: string;
-
-    @IsString()
-    login: string;
+    // @IsEmail()
+    // email: string;
 
     @IsString()
     password:string;

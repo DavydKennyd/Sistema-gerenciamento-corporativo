@@ -1,13 +1,19 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ClientModule } from './client/client.module';
-import { AuthModule } from './auth/auth.module';
-import { StaffModule } from './staff/staff.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import {  Client } from './client/entities/client.entity';
 
 @Module({
-  imports: [ClientModule, AuthModule, StaffModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    TypeOrmModule.forRoot({
+      type: 'postgres', // ou o banco que você está usando
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'ifrn.cn',
+      database: 'BD_inventario',
+      entities: [Client], // Entidades que serão mapeadas
+      synchronize: true, // Usar com cuidado em produção (cria/atualiza tabelas automaticamente)
+    }),
+  ],
 })
 export class AppModule {}

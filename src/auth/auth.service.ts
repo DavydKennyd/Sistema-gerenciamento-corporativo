@@ -1,7 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { StaffService } from '../staff/staff.service';
 import { JwtService } from '@nestjs/jwt';
-import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
@@ -22,8 +21,6 @@ export class AuthService {
     }
 
     // Compara a senha fornecida com a senha armazenada (criptografada)
-    
-
     console.log(`pesquisa no staffService ${staff.password} senha inserido ${pass} `)
 
     if (staff.password !== pass) {
@@ -31,7 +28,7 @@ export class AuthService {
     }
 
     // Gera o payload para o token JWT
-    const payload = { sub: staff.userId, username: staff.username };
+    const payload = { sub: staff.idClient, username: staff.username };
     
     // Retorna o token de acesso
     return {

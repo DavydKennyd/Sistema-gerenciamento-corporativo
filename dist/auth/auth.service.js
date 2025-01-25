@@ -29,7 +29,7 @@ let AuthService = class AuthService {
         if (staff.password !== pass) {
             throw new common_1.UnauthorizedException('Credenciais inválidas');
         }
-        const payload = { sub: staff.userId, username: staff.username };
+        const payload = { sub: staff.idClient, username: staff.username };
         return {
             access_token: await this.jwtService.signAsync(payload),
         };

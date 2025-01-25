@@ -1,8 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete,HttpCode,   HttpStatus, } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateClientDto } from '../client/dto/create-client.dto';
-import { UpdateClientDto } from '../client/dto/update-client.dto';
-
 
 
 @Controller('auth')
@@ -16,8 +13,5 @@ export class AuthController {
     const { username, password } = body;
     return this.authService.signIn(username, password);
   }
-  
-
-
 
 }

@@ -1,9 +1,7 @@
-export type Staff = {
-    userId: number;
-    username: string;
-    password: string;
-};
+import { Repository } from 'typeorm';
+import { Client } from '../client/entities/client.entity';
 export declare class StaffService {
-    private readonly staff;
-    findOne(username: string): Promise<Staff | undefined>;
+    private readonly clientRepository;
+    constructor(clientRepository: Repository<Client>);
+    findOne(username: string): Promise<Client | undefined>;
 }
